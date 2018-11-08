@@ -1,0 +1,26 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: evolve.co
+
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.evolve.co
+
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+
+    Users:
+      Count: 1
+
+  - Name: Org2
+    Domain: org2.evolve.co
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+    Users:
+      Count: 1
