@@ -1,6 +1,6 @@
-# Evolve MVP Blockchain Network
+# Hyperledger basic network
 
-All the source code to set up and run the blockchain network that serves as backend in Evolve.
+All the source code to set up and run a basic private blockchain network.
 
 ## Built With
 
@@ -26,13 +26,19 @@ These instructions will get you a copy of the project up and running on your loc
 First of all clone the repo in your local machine by running:
 
 ```
-$ git clone https://github.com/ClementeSerrano/evolve.git
+$ git clone https://github.com/ClementeSerrano/hyperledger-fabric.git
 ```
 
-Enter to the directory of the blockchain network (`$ cd evolve-network`) and ensure that you have the Fabric binaries folder (`./bin`) with the principal tools init:
+Enter to the directory of the blockchain network (`$ cd basic-network`) and ensure that you have the Fabric binaries folder (`./bin`) with the principal tools init:
 
 - cryptogen (to create the blockchain network topology and the X.509 certificates of each entity)
 - configtxgen (to generates the requisite configuration artifacts for orderer bootstrap and channel creation)
+- fabric-ca-client
+- configtxlator
+- discover
+- idemixgen
+- orderer
+- peer
 
 Finally, set_up and run the network by executing:
 
@@ -40,11 +46,15 @@ Finally, set_up and run the network by executing:
 $ bash network.sh [OPPERATION]
 ```
 
-where:
+where (follow the steps order):
 
-- `OPPERATION=set_up`: Set up the network by creating the crypto materials and channel-artifacts (channel tx and genesis block).
+- `OPPERATION=shutdown`: Stop the blockchain network.
+- `OPPERATION=setup`: Set up the network by creating the crypto materials and channel-artifacts (channel tx and genesis block).
 - `OPPERATION=start`: Run the blockchain network.
-- `OPPERATION=stop`: Stop the blockchain network.
+- `OPPERATION=restart`: Restart any pre configured blockchain network.
+- `OPPERATION=upgrade`: Upgrade configured blockchain network.
+
+Note: If you just run `$ bash network.sh`, the script will automatically run shutdown, setup and start (just what you need to run for a common local deployment).
 
 TO BE CONTINUED...
 
